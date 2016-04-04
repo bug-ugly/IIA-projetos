@@ -10,7 +10,7 @@ Done:
 
 To Do:
 
-// implementar algoritmo profundidade limitada
-// implementar algoritmo aprofundamento progressivo
-// implementar pesquisa sofrega
-// implementar A*
+- implementar algoritmo profundidade limitada
+- implementar algoritmo aprofundamento progressivo
+- implementar pesquisa sofrega
+- implementar A*
