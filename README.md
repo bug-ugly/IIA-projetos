@@ -10,7 +10,7 @@ Done:
 
 To Do:
 
-- implementar algoritmo profundidade limitada
-- implementar algoritmo aprofundamento progressivo
-- implementar pesquisa sofrega
+- implementar algoritmo profundidade limitada (Andre)
+- implementar algoritmo aprofundamento progressivo (Gloriya)
+- implementar pesquisa sofrega (Diogo)
 - implementar A*
