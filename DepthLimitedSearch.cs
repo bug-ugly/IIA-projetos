@@ -2,15 +2,20 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class DepthSearch : SearchAlgorithm
+using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
+public class DepthLimitedSearch : SearchAlgorithm
 {
 
     private Stack<SearchNode> openStack = new Stack<SearchNode>();
     private HashSet<object> closedSet = new HashSet<object>();
+    public int limite = 14;
+
 
     void Start()
     {
-        
         problem = GameObject.Find("Map").GetComponent<Map>().GetProblem();
         SearchNode start = new SearchNode(problem.GetStartState(), 0);
         openStack.Push(start);
@@ -18,11 +23,11 @@ public class DepthSearch : SearchAlgorithm
 
     protected override void Step()
     {
-        if (openStack.Count > 0)
+        if (openStack.Count > 0 && openStack.Count < limite)
         {
             SearchNode cur_node = openStack.Pop();
             closedSet.Add(cur_node.state);
-            
+
             if (problem.IsGoal(cur_node.state))
             {
                 solution = cur_node;
