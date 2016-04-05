@@ -11,7 +11,9 @@ Done:
 - associado o script "SearchProfLim" à class "Map" dentro do script "map" para testar o funcionamento.
 - Foi feito um teste inicial com limite = 10 - nada aconteceu.
 - Depois de avaliada a situação chegou-se à conclusão que são necessários no mímino 13 passos (não repetidos; 21 passos no total) para o bloco ficar na posição pretendida. Tendo em conta que cada passo é um nó, o limite tem de ser superior a 14 para que seja encontrada solução.
-- o "iterative deepening search" script foi adicionado. It is questionable (must be consulted with the teacher or someone else!)
+- o "iterative deepening search" script foi adicionado. It is questionable (must be consulted with the teacher or someone else!)´
+
 To Do:
+
 - implementar pesquisa sofrega (Diogo)
 - implementar A*
