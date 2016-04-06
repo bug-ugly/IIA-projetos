@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-public class Map : BreadthFirstSearch {
+public class Map : GreedySearch
+{
 
 	public TextAsset map;
 	public int cellSize = 4;
