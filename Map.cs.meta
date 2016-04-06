@@ -1,10 +1,15 @@
 fileFormatVersion: 2
 guid: 30386f9808ab3472ba55dbf86a1431c5
-timeCreated: 1457977956
+timeCreated: 1459849215
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - map: {fileID: 4900000, guid: 349ee2778bcf54b2f91bc2e4fae3e614, type: 3}
+  - wallPrefab: {fileID: 197560, guid: ca9857182bf0e4e11bb201b2100ff52b, type: 2}
+  - playerPrefab: {fileID: 157164, guid: d46d7dfd0861d447d8959ffcdb535fa2, type: 2}
+  - goalPrefab: {fileID: 131894, guid: a5344737a5ef2472fa0efd0f54725b44, type: 2}
+  - cratePrefab: {fileID: 128408, guid: bb930053812334e8395b884b06355e2c, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
