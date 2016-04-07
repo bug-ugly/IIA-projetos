@@ -18,7 +18,7 @@ public class GreedySearch : SearchAlgorithm
 
     protected override void Step()
     {
-        float maxCost = 0;
+        float minCost = float.MaxValue;
         if (openQueue.Count > 0)
         {
             SearchNode cur_node = openQueue.Dequeue();
@@ -34,21 +34,21 @@ public class GreedySearch : SearchAlgorithm
                 Successor[] sucessors = problem.GetSuccessors(cur_node.state);
                 foreach (Successor suc in sucessors)
                 {
-                    if (suc.cost > maxCost && !closedSet.Contains(suc.state))
+                    if (cur_node.f < minCost && !closedSet.Contains(suc.state))
                     {
-                        maxCost = suc.cost;
+                        minCost = cur_node.f;
                     }
                 }
                 foreach (Successor suc in sucessors)
                 {
-                    if (maxCost == suc.cost)
+                    if (minCost == cur_node.f)
                     {
                         SearchNode new_node = new SearchNode(suc.state, suc.cost + cur_node.g, suc.action, cur_node);
                         openQueue.Enqueue(new_node);
                     }
                 }
             }
-        
+
         }
         else
         {

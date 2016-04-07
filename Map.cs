@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-public class Map : GreedySearch
+public class Map : SearchA
 {
 
 	public TextAsset map;
