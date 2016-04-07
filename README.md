@@ -17,5 +17,5 @@ Done:
 
 To Do:
 
-- implementar A*
+- implementar A* - make it predict 
 - RELATÓRIO!
