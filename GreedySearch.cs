@@ -5,24 +5,30 @@ using System.Collections.Generic;
 public class GreedySearch : SearchAlgorithm
 {
 
-    private Queue<SearchNode> openQueue = new Queue<SearchNode>();
+    private List<SearchNode> openList = new List<SearchNode>();
     private HashSet<object> closedSet = new HashSet<object>();
-    
+
+
     void Start()
     {
         problem = GameObject.Find("Map").GetComponent<Map>().GetProblem();
         SearchNode start = new SearchNode(problem.GetStartState(), 0);
-        openQueue.Enqueue(start);
-        
+        openList.Add(start);
+
     }
 
     protected override void Step()
     {
-        float minCost = float.MaxValue;
-        if (openQueue.Count > 0)
+
+        if (openList.Count > 0)
         {
-            SearchNode cur_node = openQueue.Dequeue();
-            closedSet.Add(cur_node.state);
+
+
+            SearchNode cur_node = openList[0];
+            openList.RemoveAt(0);
+
+
+
 
             if (problem.IsGoal(cur_node.state))
             {
@@ -34,21 +40,20 @@ public class GreedySearch : SearchAlgorithm
                 Successor[] sucessors = problem.GetSuccessors(cur_node.state);
                 foreach (Successor suc in sucessors)
                 {
-                    if (cur_node.f < minCost && !closedSet.Contains(suc.state))
+                    if (!closedSet.Contains(suc.state))
                     {
-                        minCost = cur_node.f;
-                    }
-                }
-                foreach (Successor suc in sucessors)
-                {
-                    if (minCost == cur_node.f)
-                    {
-                        SearchNode new_node = new SearchNode(suc.state, suc.cost + cur_node.g, suc.action, cur_node);
-                        openQueue.Enqueue(new_node);
+                        List<Vector2> crates = GameObject.Find("Map").GetComponent<Map>().GetCrates();
+
+                        float f = crates.Count;
+                        float h = f - (suc.cost + cur_node.g);
+
+                        SearchNode new_node = new SearchNode(suc.state, suc.cost + cur_node.g, h, suc.action, cur_node);
+
+                        openList.Add(new_node);
+                        openList.Sort((x, y) => x.g.CompareTo(y.g));
                     }
                 }
             }
-
         }
         else
         {
@@ -57,3 +62,4 @@ public class GreedySearch : SearchAlgorithm
         }
     }
 }
+

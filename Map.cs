@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-public class Map : SearchA
+public class Map : GreedySearch
 {
 
 	public TextAsset map;
@@ -86,6 +86,7 @@ public class Map : SearchA
 	{
 		return problem;
 	}
+ 
 
 	public bool[,] GetWalls()
 	{

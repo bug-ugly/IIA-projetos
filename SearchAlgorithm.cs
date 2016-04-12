@@ -27,10 +27,12 @@ public class SearchNode
 
 	public SearchNode(object state, float g, float h, Action action=Action.None, SearchNode parent=null)
 	{
-		this.state = state;
+
 		this.g = g;
 		this.f = g + h;
-		this.action = action;
+
+        this.state = state;
+        this.action = action;
 		this.parent = parent;
 		if (parent != null) {
 			this.depth = parent.depth + 1;
